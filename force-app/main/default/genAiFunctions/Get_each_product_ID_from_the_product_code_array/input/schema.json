@@ -1,0 +1,18 @@
+{
+  "required" : [ "productCodes" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "productCodes" : {
+      "title" : "productCodes",
+      "description" : "Multiple product codes formed into an array",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "lightning__textType"
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

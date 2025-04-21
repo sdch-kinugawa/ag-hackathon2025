@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Pass the customer&apos;s contactId to check if there is an associated account and then check and get the account details.</description>
+    <invocationTarget>Get_Account_infomation_from_ContactId</invocationTarget>
+    <invocationTargetType>flow</invocationTargetType>
+    <isConfirmationRequired>true</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Get Account infomation from ContactId</masterLabel>
+</GenAiFunction>

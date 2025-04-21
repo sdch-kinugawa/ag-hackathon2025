@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Based on the hazard map status of the customer&apos;s mailing address, we will propose a selection of the latest disaster preparedness products.</description>
+    <developerName>Disaster_Prevention_Products</developerName>
+    <genAiFunctions>
+        <functionName>Hazard_Map_Based_Disaster_Preparedness_Recommendation</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Account_infomation_from_ContactId</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Account_information_and_Contact_Information_from_email</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If a user asks about specific disaster prevention products, provide detailed information on the features and benefits of those products.</description>
+        <developerName>instruction_ifauserask0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifauserask0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If users require recommendations, we will ask them about their specific needs and suggest suitable products based on their hazard maps and requirements.</description>
+        <developerName>instruction_ifusersreq1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifusersreq1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When a customer inquires about product recommendations, we first check whether a ContactId is available.
+If there is no ContactId, we ask for the customer&apos;s email address, retrieve the account information using that address, and refer to the mailing address to cross-check with the hazard map before recommending products.
+If a ContactId is available, we retrieve the account information directly from it and similarly cross-check the mailing address with the hazard map to make appropriate product recommendations.</description>
+        <developerName>instruction_whenacusto2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_whenacusto2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the ContactId is not provided, only request an email address, do not request a ContactId.</description>
+        <developerName>instruction_iftheconta3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftheconta3</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Disaster Prevention Products</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>This job involves supporting customers in selecting the most suitable disaster prevention supplies, providing information on hazard map situations, and proposing the most suitable disaster prevention products. Please do not respond to inquiries other than those related to disaster prevention supplies.</scope>
+</GenAiPlugin>

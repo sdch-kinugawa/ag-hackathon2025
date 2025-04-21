@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_4</activeVersionIdentifier>
+    <description>Convert product information to JSON format</description>
+    <developerName>Convert_product_information_to_JSON_format</developerName>
+    <masterLabel>Convert product information to JSON format</masterLabel>
+    <templateVersions>
+        <content>Read the sentence below and extract each product code and its corresponding quantity.
+ Then, refer to the provided product information list to match each product code to its corresponding Id.
+ Finally, generate a JSON array in the following format:
+json
+[
+    {
+        ProductId__c: &quot;matched_id_1&quot;,
+        Quantity__c: quantity_1
+    },
+    {
+        ProductId__c: &quot;matched_id_2&quot;,
+        Quantity__c: quantity_2
+    }
+]
+Sentence:
+{!$Input:inputUserText}
+Product Information List:
+json
+{!$Input:productsJsonText}
+
+Requirements:
+Output only the JSON array — no extra explanation or commentary.
+Match ProductCode to Id exactly as given.
+Preserve the order in which products appear in the sentence.
+Each object must contain both ProductId__c and Quantity__c.
+
+</content>
+        <inputs>
+            <apiName>inputUserText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>inputUserText</masterLabel>
+            <referenceName>Input:inputUserText</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>productsJsonText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>productsJsonText</masterLabel>
+            <referenceName>Input:productsJsonText</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the sentence below and extract each product code and its corresponding quantity.
+ Then, refer to the provided product information list to match each product code to its corresponding Id.
+ Finally, generate a JSON array in the following format:
+json
+[
+    {
+        &quot;ProductId__c&quot;: &quot;matched_id_1&quot;,
+        &quot;Quantity__c&quot;: &quot;quantity_1&quot;
+    },
+    {
+        &quot;ProductId__c&quot;: &quot;matched_id_2&quot;,
+        &quot;Quantity__c&quot;: &quot;quantity_2&quot;
+    }
+]
+Sentence:
+{!$Input:inputUserText}
+Product Information List:
+json
+{!$Input:productsJsonText}
+
+Requirements:
+Output only the JSON array — no extra explanation or commentary.
+Match ProductCode to Id exactly as given.
+Preserve the order in which products appear in the sentence.
+Each object must contain both ProductId__c and Quantity__c.
+
+</content>
+        <inputs>
+            <apiName>inputUserText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>inputUserText</masterLabel>
+            <referenceName>Input:inputUserText</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>productsJsonText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>productsJsonText</masterLabel>
+            <referenceName>Input:productsJsonText</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the sentence below and extract each product code and its corresponding quantity. Then, refer to the provided product information list to match each product code to its corresponding Id. 
+Finally, generate a JSON array in the following format. Please ensure that only numeric values are used for the Quantity__c field.
+json
+[
+    {
+        &quot;ProductId__c&quot;: &quot;matched_id_1&quot;,
+        &quot;Quantity__c&quot;: &quot;quantity_1&quot;
+    },
+    {
+        &quot;ProductId__c&quot;: &quot;matched_id_2&quot;,
+        &quot;Quantity__c&quot;: &quot;quantity_2&quot;
+    }
+]
+Sentence:
+{!$Input:inputUserText}
+Product Information List:
+json
+{!$Input:productsJsonText}
+
+Requirements:
+Output only the JSON array — no extra explanation or commentary.
+Match ProductCode to Id exactly as given.
+Preserve the order in which products appear in the sentence.
+Each object must contain both ProductId__c and Quantity__c.
+
+</content>
+        <inputs>
+            <apiName>inputUserText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>inputUserText</masterLabel>
+            <referenceName>Input:inputUserText</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>productsJsonText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>productsJsonText</masterLabel>
+            <referenceName>Input:productsJsonText</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the sentence below and extract each product code and its corresponding quantity. Then, refer to the provided product information list to match each product code to its corresponding Id. 
+Finally, generate a JSON array in the following format. Please ensure that only numeric values are used for the Quantity__c field.
+json
+[{&quot;ProductId__c&quot;: &quot;matched_id_1&quot;,&quot;Quantity__c&quot;: &quot;quantity_1&quot;},{&quot;ProductId__c&quot;: &quot;matched_id_2&quot;,&quot;Quantity__c&quot;: &quot;quantity_2&quot;}]
+Sentence:
+{!$Input:inputUserText}
+Product Information List:
+json
+{!$Input:productsJsonText}
+
+Requirements:
+Output only the JSON array — no extra explanation or commentary.
+Match ProductCode to Id exactly as given.
+Preserve the order in which products appear in the sentence.
+Each object must contain both ProductId__c and Quantity__c.
+
+</content>
+        <inputs>
+            <apiName>inputUserText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>inputUserText</masterLabel>
+            <referenceName>Input:inputUserText</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>productsJsonText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>productsJsonText</masterLabel>
+            <referenceName>Input:productsJsonText</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_4</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

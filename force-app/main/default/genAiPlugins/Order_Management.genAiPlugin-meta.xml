@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>We will accept additional orders from customers.</description>
+    <developerName>Order_Management</developerName>
+    <genAiFunctions>
+        <functionName>Get_Account_infomation_from_ContactId</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Read_the_product_code_from_the_text_and_convert_it_to_JSON_format</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Convert_product_information_to_JSON_format</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_each_product_ID_from_the_product_code_array</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Create_an_order_with_the_customer_ID_and_order_details</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Account_information_and_Contact_Information_from_email</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>AccountId is an Id that starts with &quot;001&quot;. ContactId is an Id that starts with &quot;003&quot;.</description>
+        <developerName>instruction_accountidi0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_accountidi0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Before creating order information, be sure to use the result of the &quot;Convert product information to JSON format&quot; action as order information and create the order with the AccountId and ContactId. Do not announce the creation of an order without receiving the order information.</description>
+        <developerName>instruction_beforecrea1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_beforecrea1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the ContactId is not provided, only request an email address, do not request a ContactId.</description>
+        <developerName>instruction_iftheconta2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftheconta2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Please do not present the received order information in JSON format to customers. Please present it in easy-to-understand bullet points.</description>
+        <developerName>instruction_pleasedono3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_pleasedono3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>To create an order, you need the order request information, AccountId, and ContactId. If you do not have a ContactId, please provide us with your email address. Please obtain the AccountId using your email address or ContactId.</description>
+        <developerName>instruction_tocreatean4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_tocreatean4</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>After creating an order, please provide the customer with the order number. Do not provide the customer with the ID of the product you created.</description>
+        <developerName>instruction_aftercreat5</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_aftercreat5</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When creating an order, please convert the product code to a product ID. Product IDs start with &quot;01t&quot;.</description>
+        <developerName>instruction_whencreati6</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_whencreati6</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Order Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>We will ask for the product number and quantity and create a draft order. Please do not take any action other than adding to the order.</scope>
+</GenAiPlugin>

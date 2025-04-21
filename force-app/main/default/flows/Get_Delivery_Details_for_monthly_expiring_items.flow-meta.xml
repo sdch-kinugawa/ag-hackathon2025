@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Set the delivery details to the return variable</description>
+        <name>Set_the_delivery_details_to_the_return_variable</name>
+        <label>Set the delivery details to the return variable</label>
+        <locationX>308</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>deliveryDetails</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Delivery_Details_for_monthly_expiring_items</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Presence or absence of delivery details</description>
+        <name>Presence_or_absence_of_delivery_details</name>
+        <label>Presence or absence of delivery details</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Set_the_delivery_details_to_the_return_variable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Delivery_Details_for_monthly_expiring_items</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <description>Get Delivery Details for monthly expiring items</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Last day of the expiry month</description>
+        <name>expirationEndDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(YEAR(ADDMONTHS({!expirationStartDate},1)),MONTH(ADDMONTHS({!expirationStartDate},1)),1) -1</expression>
+    </formulas>
+    <formulas>
+        <description>Expiration date: 1st of the month</description>
+        <name>expirationStartDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(YEAR({!expirationDate}),MONTH({!expirationDate}),1)</expression>
+    </formulas>
+    <interviewLabel>Get Delivery Details for monthly expiring items {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Delivery Details for monthly expiring items</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get Delivery Details for monthly expiring items</description>
+        <name>Get_Delivery_Details_for_monthly_expiring_items</name>
+        <label>Get Delivery Details for monthly expiring items</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Presence_or_absence_of_delivery_details</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ExpirationDate__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>expirationStartDate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ExpirationDate__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>expirationEndDate</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>DeliveryDetail__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>ProductCode__c</queriedFields>
+        <queriedFields>ProductName__c</queriedFields>
+        <queriedFields>ExpirationDate__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Delivery_Details_for_monthly_expiring_items</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Target Account Id</description>
+        <name>accountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Delivery details subject to expiry date</description>
+        <name>deliveryDetails</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>DeliveryDetail__c</objectType>
+    </variables>
+    <variables>
+        <description>Expiration date</description>
+        <name>expirationDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

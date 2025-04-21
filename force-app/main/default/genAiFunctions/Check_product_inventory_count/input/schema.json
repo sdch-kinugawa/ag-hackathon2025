@@ -1,0 +1,14 @@
+{
+  "required" : [ "productCode" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "productCode" : {
+      "title" : "productCode",
+      "description" : "Product Code to check stock quantity",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

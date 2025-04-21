@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_Product_to_Prompt</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Add Product to Prompt</label>
+        <locationX>264</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>{!Latest_Products_Loop.Name}
+{!Latest_Products_Loop.ProductCode}{!Latest_Products_Loop.UnitPrice}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Latest_Products_Loop</targetReference>
+        </connector>
+    </assignments>
+    <description>Retrieve the latest emergency preparedness items and output their product names and product codes.</description>
+    <environments>Default</environments>
+    <interviewLabel>Add Recommended Emergency Preparedness Items {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Add Recommended Emergency Preparedness Items</label>
+    <loops>
+        <name>Latest_Products_Loop</name>
+        <label>Latest Products Loop</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <collectionReference>Get_LatestProducts_from_PriceBookEntry</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Product_to_Prompt</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordLookups>
+        <description>Get LatestProducts from PriceBookEntry</description>
+        <name>Get_LatestProducts_from_PriceBookEntry</name>
+        <label>Get LatestProducts from PriceBookEntry</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Latest_Products_Loop</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>PricebookEntry</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_LatestProducts_from_PriceBookEntry</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

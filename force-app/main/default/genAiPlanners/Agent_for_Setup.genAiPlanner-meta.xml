@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Simplify administrative tasks with Agent for Setup. Customize and manage your org and quickly find documentation with Agent for Setup.</description>
+    <masterLabel>Agent for Setup</masterLabel>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlanner>

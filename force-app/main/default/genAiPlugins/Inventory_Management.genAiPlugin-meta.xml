@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Provides information about product availability.</description>
+    <developerName>Inventory_Management</developerName>
+    <genAiFunctions>
+        <functionName>Check_product_inventory_count</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_each_product_ID_from_the_product_code_array</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Inform customers about the availability of products. Be sure to ask customers to provide the product code, refer to the stock information from the product code, and inform them only of the availability status without specifying the quantity.</description>
+        <developerName>instruction_informcust0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_informcust0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Provide only the information listed in the product details when describing the product, and avoid exaggeration in your explanation.</description>
+        <developerName>instruction_provideonl1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_provideonl1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Please do not show your product ID to customers.</description>
+        <developerName>instruction_pleasedono2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_pleasedono2</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Inventory Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>If you are asked about the availability of a product, obtain the stock information and provide the availability status.</scope>
+</GenAiPlugin>

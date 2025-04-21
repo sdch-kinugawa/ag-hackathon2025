@@ -1,0 +1,28 @@
+{
+  "required" : [ "Input:inputUserText", "Input:productsJsonText" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:inputUserText" : {
+      "title" : "inputUserText",
+      "description" : "Order information entered by the customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:productsJsonText" : {
+      "title" : "productsJsonText",
+      "description" : "Product information associated with the order entered by the customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

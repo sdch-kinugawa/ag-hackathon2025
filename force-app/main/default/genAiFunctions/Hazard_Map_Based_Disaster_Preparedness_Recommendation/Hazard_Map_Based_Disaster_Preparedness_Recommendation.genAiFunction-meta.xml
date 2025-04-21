@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>We will retrieve a hazard map based on the entered address and recommend disaster preparedness goods that match the hazards shown on the map.</description>
+    <invocationTarget>Hazard_Map_Based_Disaster_Preparedness_Recommendation</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Hazard Map-Based Disaster Preparedness Recommendation</masterLabel>
+</GenAiFunction>

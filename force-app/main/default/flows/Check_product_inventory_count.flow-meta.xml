@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Set_Inventory</name>
+        <label>Set Inventory</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>stockCount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_stock_entries_tied_to_a_specific_product_Code.Quantity__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Check product inventory count</description>
+    <environments>Default</environments>
+    <interviewLabel>Check product inventory count {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Check product inventory count</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get stock entries tied to a specific product ID</description>
+        <name>Get_stock_entries_tied_to_a_specific_product_Code</name>
+        <label>Get stock entries tied to a specific product Code</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Inventory</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>productCode</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Inventory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_stock_entries_tied_to_a_specific_product_Code</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Product Code to check stock quantity</description>
+        <name>productCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Product stock quantity</description>
+        <name>stockCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

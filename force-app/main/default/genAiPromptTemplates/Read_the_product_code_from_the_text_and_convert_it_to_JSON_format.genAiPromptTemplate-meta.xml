@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_2</activeVersionIdentifier>
+    <description>Read the product code from the text and convert it to JSON format</description>
+    <developerName>Read_the_product_code_from_the_text_and_convert_it_to_JSON_format</developerName>
+    <masterLabel>Read the product code from the text and convert it to JSON format</masterLabel>
+    <templateVersions>
+        <content>Read the following sentence and extract all product codes.
+ Then output them as a JSON array of strings in the following format:
+json
+[&quot;PD001&quot;, &quot;PD022&quot;]  
+
+Sentence:
+{!$Input:inputUserText}
+
+Instructions:
+Only include the product codes in the array.
+Maintain the order in which the product codes appear in the sentence.
+Output only the JSON array with no additional text or explanation.
+
+</content>
+        <inputs>
+            <apiName>inputUserText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>inputUserText</masterLabel>
+            <referenceName>Input:inputUserText</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the following sentence and extract all product codes.
+ Then output them as a JSON array of strings in the following format:
+json
+[&quot;ProductCode_1&quot;, &quot;ProductCode_2&quot;]  
+
+Sentence:
+{!$Input:inputUserText}
+
+Instructions:
+Only include the product codes in the array.
+Maintain the order in which the product codes appear in the sentence.
+Output only the JSON array with no additional text or explanation.
+
+</content>
+        <inputs>
+            <apiName>inputUserText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>inputUserText</masterLabel>
+            <referenceName>Input:inputUserText</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>7nHOSgGJFo25GBUPpUzTgVHJ1qqqx95XVeeQXCf/KhE=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

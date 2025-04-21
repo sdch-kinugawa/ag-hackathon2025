@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>We will provide you with a delivery invoice for products with an approaching expiration date.</description>
+    <developerName>Delivery_Details_for_Expiring_Items</developerName>
+    <genAiFunctions>
+        <functionName>Get_Delivery_Details_for_monthly_expiring_items</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Account_infomation_from_ContactId</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Account_information_and_Contact_Information_from_email</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Before viewing the delivery details for products with an approaching expiration date, please confirm the expiration date for which you would like to see the delivery details.</description>
+        <developerName>instruction_beforeview0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_beforeview0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Please refer to the delivery details by the supplier ID and expiration date. If you do not have a supplier ID, we will obtain supplier information based on the ContactId. If you do not have a ContactId, please ask for the email address and obtain the supplier ID from the email address before obtaining the delivery details.</description>
+        <developerName>instruction_pleaserefe1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_pleaserefe1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the ContactId is not provided, only request an email address, do not request a ContactId.</description>
+        <developerName>instruction_iftheconta2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftheconta2</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Delivery Details for Expiring Items</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>This job involves presenting products that have been delivered to customers and have an expiration date within the target period, and placing additional orders. Please refrain from responding to requests other than those for products that are close to their expiration date.</scope>
+</GenAiPlugin>
